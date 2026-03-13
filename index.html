@@ -3,17 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>computer killer 9000</title>
+    <title>CHAOS</title>
 </head>
 <body>
     <h1>Welcome!</h1>
-    <p>TO START THE CHAOS, ENABLE POPUPS AND RELOAD</p>
+    <p>Enable popups and click the button to see the effect.</p>
+    
+    <button onclick="startChaos()">START THE CHAOS</button>
+
     <script>
-      int x = 1
-      while (x==1) {
-      const boom = window.open("https://moo.org", "CHAOS", "width=400,height=300");
-      boom.moveBy(50, 20)
-      boom.moveBy(-50, -20);
+      function startChaos() {
+        // We use setInterval instead of 'while' so the browser doesn't crash
+        setInterval(() => {
+          const boom = window.open("https://example.com", "_blank", "width=400,height=300");
+          
+          if (boom) {
+            boom.moveBy(50, 20);
+            setTimeout(() => boom.moveBy(-50, -20), 100);
+          }
+        }, 500); // Opens a new window every 500ms
       }
     </script>
 </body>
